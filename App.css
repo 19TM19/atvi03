@@ -77,3 +77,25 @@ body {
     background-color: #dc143c; /* Vermelho escuro */
   }
   
+  .mensagem-erro {
+    color: #b22222;
+    background-color: #f8d7da; 
+    padding: 10px;
+    border: 1px solid #b22222;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .mensagem-sucesso {
+    color: #228b22; 
+    background-color: #d4edda; 
+    padding: 10px;
+    border: 1px solid #228b22;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
