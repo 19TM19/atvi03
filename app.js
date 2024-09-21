@@ -34,6 +34,11 @@ function App() {
   const [mensagem, setMensagem] = useState(''); // Pode ser usada tanto para erro quanto para sucesso
   const [tipoMensagem, setTipoMensagem] = useState(''); // 'erro' ou 'sucesso'
 
+  // Filtrar os períodos disponíveis (não preenchidos)
+  const getPeriodosDisponiveis = (dia) => {
+    return ['manha', 'tarde', 'noite'].filter(periodo => !estudos[dia][periodo]);
+  };
+
   // Função para adicionar uma atividade
   const adicionarAtividade = useCallback(() => {
     if (!atividade) {
@@ -55,6 +60,7 @@ function App() {
 
     // Limpar os campos após adicionar
     setAtividade('');
+    setPeriodoSelecionado(getPeriodosDisponiveis(diaSelecionado)[0]); // Atualiza para o próximo período disponível
 
     // Remover mensagem após 3 segundos
     setTimeout(() => {
@@ -77,9 +83,11 @@ function App() {
 
         <label>Período:</label>
         <select value={periodoSelecionado} onChange={(e) => setPeriodoSelecionado(e.target.value)}>
-          <option value="manha">Manhã</option>
-          <option value="tarde">Tarde</option>
-          <option value="noite">Noite</option>
+          {getPeriodosDisponiveis(diaSelecionado).map(periodo => (
+            <option key={periodo} value={periodo}>
+              {periodo.charAt(0).toUpperCase() + periodo.slice(1)}
+            </option>
+          ))}
         </select>
 
         <label>O que estudar:</label>
