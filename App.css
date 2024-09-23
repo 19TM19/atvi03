@@ -14,7 +14,7 @@ body {
   background: linear-gradient(0deg,lightblue, blue, lightblue);
   box-shadow: 0 4px 8x rgba(0, 0, 0, 0.1);
 }
-
+ 
 h1 {
   color: black; /* Vermelho vibrante para o título principal */
   text-align: center;
